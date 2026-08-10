@@ -1,0 +1,43 @@
+Troubleshooting
+
+
+##Permission Denied
+
+bash: ./script.sh: Permission denied
+
+Fix:
+
+chmod +x script.sh
+
+
+##Command Not Found Inside Script
+
+Validate command:
+
+which systemctl
+
+Use correct syntax.
+
+Bad:
+
+"sudo systemctl status sshd"
+
+Good:
+
+sudo systemctl status sshd
+
+A quoted sequence can be interpreted as one command name instead of a command with arguments.
+
+##Variables Not Expanding Correctly
+
+Use:
+
+echo "$variable"
+
+Validate variable content:
+
+declare -p variable
+
+Run debug mode:
+
+bash -x script.sh
