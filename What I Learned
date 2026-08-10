@@ -1,0 +1,11 @@
+Bash automation is most valuable when scripts are:
+
+Predictable
+Readable
+Idempotent where practical
+Properly validated
+Logged
+Designed to fail safely
+Easy for another administrator to understand
+
+Automation should reduce repetitive work without hiding operational failures.
