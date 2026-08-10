@@ -1,0 +1,15 @@
+Clone repository:
+
+git clone https://github.com/YOUR-USERNAME/bash-automation-toolkit.git
+
+Enter directory:
+
+cd bash-automation-toolkit
+
+Make scripts executable:
+
+chmod +x scripts/*.sh
+
+Run:
+
+./scripts/system_health_check.sh
