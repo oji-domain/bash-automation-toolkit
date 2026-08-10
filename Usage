@@ -1,0 +1,119 @@
+###System Health Script
+
+Create:
+
+scripts/system_health_check.sh
+
+Example:
+
+#!/bin/bash
+
+HOST=$(hostname)
+DATE=$(date)
+UPTIME=$(uptime -p)
+
+echo "======================================"
+echo " Linux System Health Report"
+echo "======================================"
+echo "Hostname: $HOST"
+echo "Date:     $DATE"
+echo "Uptime:   $UPTIME"
+echo
+
+echo "--- Filesystem Usage ---"
+df -h
+
+echo
+echo "--- Memory Usage ---"
+free -h
+
+echo
+echo "--- Load Average ---"
+uptime
+
+echo
+echo "--- Failed Services ---"
+systemctl --failed --no-pager
+
+echo
+echo "--- Listening Ports ---"
+ss -tulpn
+
+
+##Disk Usage Monitor
+
+Create:
+
+scripts/disk_usage_monitor.sh
+#!/bin/bash
+
+THRESHOLD=80
+
+df -P | awk 'NR>1 {print $5,$6}' | while read usage filesystem
+do
+    percent=${usage%\%}
+
+    if [ "$percent" -ge "$THRESHOLD" ]; then
+        echo "WARNING: $filesystem is ${percent}% full"
+    else
+        echo "OK: $filesystem is ${percent}% full"
+    fi
+done
+
+
+##Service Monitor
+
+#!/bin/bash
+
+SERVICES=("sshd" "crond")
+
+for service in "${SERVICES[@]}"
+do
+    if systemctl is-active --quiet "$service"; then
+        echo "[OK] $service is running"
+    else
+        echo "[FAILED] $service is not running"
+    fi
+done
+
+
+##User Validation
+
+#!/bin/bash
+
+USERS=("sysadmin" "automation")
+
+for user in "${USERS[@]}"
+do
+    if id "$user" &>/dev/null; then
+        echo "[OK] User $user exists"
+    else
+        echo "[WARNING] User $user does not exist"
+    fi
+done
+
+
+##Package Monitor
+
+Purpose:
+
+Detect or report installed RPM packages.
+
+Example:
+
+rpm -qa --last
+
+Script:
+
+#!/bin/bash
+
+REPORT="/tmp/package_report.txt"
+
+echo "Installed Package Report" > "$REPORT"
+echo "Generated: $(date)" >> "$REPORT"
+echo "Hostname: $(hostname)" >> "$REPORT"
+echo "--------------------------------" >> "$REPORT"
+
+rpm -qa --last >> "$REPORT"
+
+cat "$REPORT"
