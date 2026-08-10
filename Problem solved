@@ -1,0 +1,13 @@
+Operations engineers repeatedly perform checks such as:
+
+Is the filesystem full?
+Is SSH running?
+Was a package recently installed?
+Are required users present?
+Is the server ready for patching?
+Did the backup complete?
+Is memory utilization abnormal?
+
+Performing these manually across multiple systems is slow and inconsistent.
+
+The scripts in this repository automate these checks and produce standardized output.
