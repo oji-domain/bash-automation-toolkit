@@ -1,0 +1,33 @@
+                 Linux Server
+                      |
+              Bash Automation
+                      |
+          +-----------+-----------+
+          |           |           |
+       Services      Disk        Users
+          |           |           |
+          +-----------+-----------+
+                      |
+                    Logs
+                      |
+                  Report File
+
+Repository structure:
+
+bash-automation-toolkit/
+│
+├── README.md
+├── scripts/
+│   ├── system_health_check.sh
+│   ├── service_monitor.sh
+│   ├── disk_usage_monitor.sh
+│   ├── user_validation.sh
+│   ├── package_monitor.sh
+│   ├── patch_readiness.sh
+│   └── backup_validation.sh
+│
+├── configs/
+├── sample-output/
+├── docs/
+├── screenshots/
+└── troubleshooting/
