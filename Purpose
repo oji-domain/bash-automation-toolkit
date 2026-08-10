@@ -1,0 +1,15 @@
+This repository demonstrates how repetitive systems-administration tasks can be converted into reusable, testable Bash scripts.
+
+Areas covered include:
+
+System health checks
+Disk monitoring
+Service monitoring
+User validation
+Package monitoring
+Patch readiness
+Backup validation
+Server inventory
+Log analysis
+Network validation
+Security checks
