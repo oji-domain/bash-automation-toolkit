@@ -1,0 +1,21 @@
+======================================
+Linux System Health Report
+======================================
+Hostname: linux01 
+Date: Mon Aug 10 16:00:00 CDT 2026 
+Uptime: up 4 hours, 21 minutes
+
+--- Memory Usage ---
+
+         total used free
+Mem:     7.6Gi 1.8Gi 4.5Gi
+
+--- Failed Services ---
+
+0 loaded units listed.
+
+--- Disk Check ---
+
+OK: / is 37% full 
+OK: /boot is 24% full 
+WARNING: /var is 84% full
